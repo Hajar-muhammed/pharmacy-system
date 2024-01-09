@@ -19,12 +19,17 @@ class OrderResource extends JsonResource
             'id'=>$this->id,
             'cost'=>$this->cost,
             'total_ammount'=>$this->totalAmmount,
+            'paid'=>$this->paid,
+            "unpaid"=>$this->totalAmmount-$this->paid,
+            'notes'=>$this->notes,
+            'created_at'=> $this->created_at->format('Y-m-d H:i'),
+            'isPaid_theOtherSystem'=>boolval($this->isPaid_theOtherSystem),
             'customer'=>$this->customer,
             'customer_phone'=>$this->customer_phone,
             'customer_address'=>$this->customer_address,
             'delivery_man'=>$this->user,
-            'notes'=>$this->notes,
-            'created_at'=>$this->created_at
+            'sale_point'=>$this->sale_point,
+
         ];
     }
 }
